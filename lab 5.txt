@@ -1,0 +1,19 @@
+Microsoft Windows [Version 10.0.19041.264]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\Robert>aws sns create-topic --name Rtlab5
+{
+    "TopicArn": "arn:aws:sns:us-east-2:868639358029:Rtlab5"
+}
+
+
+C:\Users\Robert>aws sns subscribe --topic-arn arn:aws:sns:us-east-2:868639358029:Rtlab5 --protocol email --notification-endpoint robert.turanicua@gmail.com
+{
+    "SubscriptionArn": "pending confirmation"
+}
+
+
+C:\Users\Robert>aws cloudwatch put-metric-alarm --alarm-name Notification --alarm-description "RtLab5Status" --metric-name HealthyHostCount --namespace AWS/ApplicationELB --statistic Minimum --dimensions Name=LoadBalancer,Value=app/RobertLAB4/3c934906048d9f29 Name=TargetGroup,Value=targetgroup/Robert-Target-Group/5cb0a14e642c9bed --unit Count --period 300 --threshold 2 --evaluation-periods 2 --comparison-operator LessThanThreshold --alarm-actions arn:aws:sns:us-east-2:868639358029:Rtlab5
+
+
+C:\Users\Robert>
